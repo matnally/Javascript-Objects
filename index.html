@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <meta charset="utf-8">
+
+        <script type="text/javascript" src="characterObject.js"></script>
+
+
+        <script type="text/javascript" src="characterPropertyValues.js"></script>
+        <script type="text/javascript" src="enemyCreate.js"></script>
+
+
+        <script type="text/javascript" src="friendlyCreate.js"></script>
+
+        <script type="text/javascript" src="misc.js"></script>
+
+        <script>
+
+/*
+
+Create Enemies
+Have to fight them one by one?
+Can use equpiement
+
+*/
+
+
+
+           //Creates N instances of Enemy from the Character Object
+
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="default.css">
+
+        <title>Objects</title>
+
+</head>
+<body>
+
+  <form>
+
+    <label for="intNoOfEnemys">Number of Enemies</label><input id="intNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
+    <br>
+    <button onclick="enemyCreateRandom(intNoOfEnemys.value); return false;">Create &amp; Show Enemy Details</button>
+
+  </form>
+
+  <h3>Enemies</h3>
+  <div id="elemEnemy"></div>
+
+</body>
+</html>
