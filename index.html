@@ -6,26 +6,24 @@
 
         <script type="text/javascript" src="characterObject.js"></script>
 
-
         <script type="text/javascript" src="characterPropertyValues.js"></script>
         <script type="text/javascript" src="enemyCreate.js"></script>
-
 
         <script type="text/javascript" src="friendlyCreate.js"></script>
 
         <script type="text/javascript" src="misc.js"></script>
+
+        <script type="text/javascript" src="gameStart.js"></script>
 
         <script>
 
 /*
 
 Create Enemies
-Have to fight them one by one?
-Can use equpiement
+  Create all stats
+Create Character
 
 */
-
-
 
            //Creates N instances of Enemy from the Character Object
 
@@ -38,16 +36,28 @@ Can use equpiement
 </head>
 <body>
 
-  <form>
+  <div id="elemNewGameContainer">
+    <h3>New Game</h3>
+    <form id="elemNewGameForm">
+      <label for="elemNoOfEnemys">Number of Enemies</label>
+      <input id="elemNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
+      <br>
+      <label for="elemDifficulty">Difficulty</label>
+      <select id="elemDifficulty">
+        <option value="easy">Easy</option>
+        <option value="normal" selected>Normal</option>
+        <option value="hard">Hard</option>
+      </select>
+      <br><br>
+      <button onclick="gameStart(); return false;">Create</button>
+    </form>
+  </div><!-- elemNewGame -->
 
-    <label for="intNoOfEnemys">Number of Enemies</label><input id="intNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
-    <br>
-    <button onclick="enemyCreateRandom(intNoOfEnemys.value); return false;">Create &amp; Show Enemy Details</button>
-
-  </form>
+  <h3>Chosen Enemy</h3>
+  <div id="elemEnemyChosen"></div><!-- elemEnemyChosen -->
 
   <h3>Enemies</h3>
-  <div id="elemEnemy"></div>
+  <div id="elemEnemyContainer"></div><!-- elemEnemy -->
 
 </body>
 </html>

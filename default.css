@@ -1,5 +1,11 @@
+#elemNewGameContainer {
 
-#elemEnemy {
+}
+
+
+
+#elemEnemyContainer {
+  visibility: hidden;
 }
 .characterCard {
   float: left;

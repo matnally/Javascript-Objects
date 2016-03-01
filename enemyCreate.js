@@ -17,16 +17,21 @@ function enemyCreateRandom(intNoOfEnemys) {
     var objEnemy = Object.create(objCharacter); //Create new object using objCharacter definition; Create new loop so is a unique object
         //objEnemy.setValues(strTitle, strFirstname, strSecondname, strDOB, strGender); //DOB = YYYY-MM-DD
         objEnemy.setValues(i
-                          ,returnPropertyRandom(arrTitle)
-                          ,returnPropertyRandom(arrFirstname)
-                          ,returnPropertyRandom(arrSecondname)
+                          ,returnPropertyRandom(arrFullname)
                           ,returnDOBRandom(new Date(1979, 0, 1), new Date(1980, 0, 1))
-                          ,returnPropertyRandom(arrGender)
-        ); //DOB = YYYY-MM-DD
+                          ); //DOB = YYYY-MM-DD
 
     arrEnemy.push(objEnemy); //Write Object to Array
 
-    objEnemy.createCard();
+
+
+
+    var x = document.getElementById("elemEnemyContainer");
+        x.innerHTML += objEnemy.createCard();
+        x.style.visibility = "visible";
+
+
+
 
   }// For
 
@@ -35,7 +40,7 @@ function enemyCreateRandom(intNoOfEnemys) {
 
 function returnPropertyRandom(arrArray) { // Returns a Random Property from passed in Array
 
-  var returnPropertyRandom = arrArray[Math.floor(Math.random()*arrArray.length)]; //Value to Return
+  var returnPropertyRandom = arrArray[Math.floor(Math.random() * arrArray.length)]; //Value to Return
   return returnPropertyRandom;
 
 }// Function
@@ -47,3 +52,32 @@ function returnDOBRandom(intStart, intEnd) { // Returns a Random Property from p
   return datDOB;
 
 }// Function
+
+
+
+
+
+
+var arrEnemyChosen = new Array();
+
+function chooseEnemy(intArrayIndex) {
+
+arrEnemyChosen[0] = arrEnemy[intArrayIndex];
+
+  var x = document.getElementById("elemEnemyChosen");
+      x.innerHTML = arrEnemyChosen[0].createCard();
+
+/*
+  var strTemp = "";
+
+  for (var key in arrEnemy[intArrayIndex]) {
+      if (arrEnemy[intArrayIndex].hasOwnProperty(key)) {
+          strTemp += key + " : " + arrEnemy[intArrayIndex][key];
+          strTemp += "<br>";
+      }
+  }
+
+  var x = document.getElementById("elemEnemyContainer");
+      x.innerHTML += strTemp;
+*/
+}

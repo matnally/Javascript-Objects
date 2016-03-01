@@ -3,20 +3,48 @@ var objCharacter = new Object(); //Main object creation
 
     objCharacter = { //Assign functions to object
         setValues: function (intID
-                            ,strTitle
-                            ,strFirstname
-                            ,strSecondname
+                            ,strFullname
                             ,strDOB
-                            ,strGender
         ) { //Set Object Property values
             this.id = intID;
-            this.title = strTitle;
-            this.firstname = strFirstname;
-            this.secondname = strSecondname;
-            this.fullname = (this.title + " " + this.firstname + " " + this.secondname);
+
+            this.fullname = strFullname;
+
             this.DOB = strDOB; //YYYY-MM-DD
             this.age = this.getAgeFromDOB(strDOB);
-            this.gender = strGender;
+
+            this.attack = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
+            this.defense = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
+            this.speed = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
+
+            this.items = 0;
+
+        }
+        ,setAttribute: function (strDifficulty, intMin, intMax) {
+
+          var intAttribute = 0;
+          var intMultiplier = 0;
+
+          var intReturnValue = 0;
+
+          switch (strDifficulty) {
+            case "easy":
+              intMultiplier = 2;
+            break;
+            case "normal":
+              intMultiplier = 1;
+            break;
+            case "hard":
+              intMultiplier = 0.5;
+            break;
+            default:
+              intMultiplier = 1;
+          }
+
+          intAttribute = Math.floor(Math.random() * intMax) + intMin; //Get random numbers between two values
+          intReturnValue = Math.round(intAttribute * intMultiplier);
+
+          return intReturnValue;
 
         }
         ,getAgeFromDOB: function (strDOB) { //Return age determined from date of birth
@@ -37,7 +65,7 @@ var objCharacter = new Object(); //Main object creation
 
             strTemp += "<br>";
 
-            var x = document.getElementById("elemEnemy");
+            var x = document.getElementById("elemEnemyContainer");
                 x.innerHTML += strTemp;
 
         }
@@ -45,27 +73,25 @@ var objCharacter = new Object(); //Main object creation
 
             var strTemp = "";
 
-            strTemp += '<div id="'+this.id+'" class="characterCard">';
+            strTemp += '<div id="'+this.id+'" class="characterCard" onClick="chooseEnemy('+this.id+');">';
             strTemp += '<h3>'+this.fullname+'</h3>';
             strTemp += '<label for="'+this.id+'-id">ID: </label><input id="'+this.id+'-id" type="text" value="'+this.id+'">';
             strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-title">Title: </label><input id="'+this.id+'-title" type="text" value="'+this.title+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-firstName">First Name: </label><input id="'+this.id+'-firstName" type="text" value="'+this.firstname+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-secondName">Second Name: </label><input id="'+this.id+'-secondName" type="text" value="'+this.secondname+'">';
+            strTemp += '<label for="'+this.id+'-fullName">Full Name: </label><input id="'+this.id+'-fullName" type="text" value="'+this.fullname+'">';
             strTemp += '<br>';
             strTemp += '<label for="'+this.id+'-dob">Date of Birth: </label><input id="'+this.id+'-dob" type="text" value="'+this.DOB+'">';
             strTemp += '<br>';
             strTemp += '<label for="'+this.id+'-age">Age (years): </label><input id="'+this.id+'-age" type="text" value="'+this.age+'">';
             strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-gender">Gender: </label><input id="'+this.id+'-gender" type="text" value="'+this.gender+'">';
+            strTemp += '<label for="'+this.id+'-attack">Attack: </label><input id="'+this.id+'-attack" type="text" value="'+this.attack+'">';
+            strTemp += '<br>';
+            strTemp += '<label for="'+this.id+'-defense">Defense: </label><input id="'+this.id+'-defense" type="text" value="'+this.defense+'">';
+            strTemp += '<br>';
+            strTemp += '<label for="'+this.id+'-speed">Speed: </label><input id="'+this.id+'-speed" type="text" value="'+this.speed+'">';
             strTemp += '<br>';
             strTemp += '</div>';
 
-
-            var x = document.getElementById("elemEnemy");
-                x.innerHTML += strTemp;
+            return strTemp;
 
         }
     };
