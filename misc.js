@@ -6,3 +6,18 @@ function objectDisplayAllProperties(arrToDisplay) { // Iterates through and disp
   }// For
 
 }// Function
+
+function returnPropertyRandom(arrArray) { // Returns a Random Property from passed in Array
+
+  var returnPropertyRandom = arrArray[Math.floor(Math.random() * arrArray.length)]; //Value to Return
+  return returnPropertyRandom;
+
+}// Function
+
+function returnDOBRandom(intStart, intEnd) { // Returns a Random Property from passed in Array
+
+  var datDOB = new Date(intStart.getTime() + Math.random() * intEnd.getTime() - intStart.getTime());
+  //alert(datDOB.toUTCString());
+  return datDOB;
+
+}// Function

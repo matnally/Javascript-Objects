@@ -13,9 +13,9 @@ var objCharacter = new Object(); //Main object creation
             this.DOB = strDOB; //YYYY-MM-DD
             this.age = this.getAgeFromDOB(strDOB);
 
-            this.attack = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
-            this.defense = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
-            this.speed = this.setAttribute(document.getElementById("elemDifficulty").value, 1, 10);
+            this.attack = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
+            this.defense = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
+            this.speed = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
 
             this.items = 0;
 
@@ -92,6 +92,44 @@ var objCharacter = new Object(); //Main object creation
             strTemp += '</div>';
 
             return strTemp;
+
+        }
+        ,createCardChosen: function () { //Displays all Properties in Object
+
+            var strTemp = "";
+
+            strTemp += '<div id="'+this.id+'" class="characterCard" onClick="chooseEnemy('+this.id+');">';
+            strTemp += '<h3>'+this.fullname+'</h3>';
+            strTemp += '<label>Attack: </label><label>'+this.attack+'</label>';
+            strTemp += '<br>';
+            strTemp += '<label">Defense: </label><label>'+this.defense+'</label>';
+            strTemp += '<br>';
+            strTemp += '<label>Speed: </label><label>'+this.speed+'</label>';
+            strTemp += '<br>';
+            strTemp += '</div>';
+
+            return strTemp;
+
+        }
+        ,calcAttack: function () {
+
+          var strTemp = 0;
+
+          return strTemp;
+
+        }
+        ,calcDefense: function () {
+
+          var strTemp = 0;
+
+          return strTemp;
+
+        }
+        ,calcHealth: function () {
+
+          var strTemp = 0;
+
+          return strTemp;
 
         }
     };

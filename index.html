@@ -4,30 +4,15 @@
 
         <meta charset="utf-8">
 
-        <script type="text/javascript" src="characterObject.js"></script>
-
         <script type="text/javascript" src="characterPropertyValues.js"></script>
-        <script type="text/javascript" src="enemyCreate.js"></script>
 
-        <script type="text/javascript" src="friendlyCreate.js"></script>
+        <script type="text/javascript" src="characterObject.js"></script>
+          <script type="text/javascript" src="enemyCreate.js"></script>
+          <script type="text/javascript" src="friendlyCreate.js"></script>
 
         <script type="text/javascript" src="misc.js"></script>
 
         <script type="text/javascript" src="gameStart.js"></script>
-
-        <script>
-
-/*
-
-Create Enemies
-  Create all stats
-Create Character
-
-*/
-
-           //Creates N instances of Enemy from the Character Object
-
-        </script>
 
         <link rel="stylesheet" type="text/css" href="default.css">
 
@@ -39,25 +24,44 @@ Create Character
   <div id="elemNewGameContainer">
     <h3>New Game</h3>
     <form id="elemNewGameForm">
-      <label for="elemNoOfEnemys">Number of Enemies</label>
-      <input id="elemNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
+
+      <label for="elemNewGameName">Name</label>
+      <input id="elemNewGameName" type="text" value="Frank Zappa" size="25">
       <br>
-      <label for="elemDifficulty">Difficulty</label>
-      <select id="elemDifficulty">
+
+      <label for="elemNewGameNoOfEnemys">Number of Enemies</label>
+      <input id="elemNewGameNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
+      <br>
+
+      <label for="elemNewGameDifficulty">Difficulty</label>
+      <select id="elemNewGameDifficulty">
         <option value="easy">Easy</option>
         <option value="normal" selected>Normal</option>
         <option value="hard">Hard</option>
       </select>
       <br><br>
+
       <button onclick="gameStart(); return false;">Create</button>
+
     </form>
   </div><!-- elemNewGame -->
+
+  <br><br>
+
+<div id="elemCharactersContainer">
+
+  <h3>You</h3>
+  <div id="elemFriendly"></div><!-- elemFriendly -->
 
   <h3>Chosen Enemy</h3>
   <div id="elemEnemyChosen"></div><!-- elemEnemyChosen -->
 
-  <h3>Enemies</h3>
-  <div id="elemEnemyContainer"></div><!-- elemEnemy -->
+</div><!-- elemCharactersContainer -->
+
+<br><br>
+<h3>Enemies</h3>
+<div id="elemEnemyContainer"></div><!-- elemEnemyContainer -->
+
 
 </body>
 </html>

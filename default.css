@@ -1,5 +1,23 @@
-#elemNewGameContainer {
+#elemCharactersContainer, #elemFriendly, #elemEnemyChosen, #elemEnemyContainer, #elemNewGameContainer, .characterCard {
+  padding: 10px;
+}
 
+#elemCharactersContainer {
+  border: 1px #CCC solid;
+  display: table;
+}
+#elemFriendly {
+  display: table-cell;
+}
+#elemEnemyChosen {
+  display: table-cell;
+}
+
+
+
+
+#elemNewGameContainer {
+  border: 1px #000 solid;
 }
 
 
@@ -8,6 +26,5 @@
   visibility: hidden;
 }
 .characterCard {
-  float: left;
   border: 1px #000 solid;
 }
