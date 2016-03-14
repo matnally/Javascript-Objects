@@ -5,15 +5,13 @@
         <meta charset="utf-8">
 
         <script type="text/javascript" src="characterPropertyValues.js"></script>
-
         <script type="text/javascript" src="characterObject.js"></script>
           <script type="text/javascript" src="enemyCreate.js"></script>
           <script type="text/javascript" src="friendlyCreate.js"></script>
-
         <script type="text/javascript" src="misc.js"></script>
-
         <script type="text/javascript" src="gameStart.js"></script>
-
+        <script type="text/javascript" src="battleStart.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="default.css">
 
         <title>Objects</title>
@@ -41,27 +39,31 @@
       </select>
       <br><br>
 
-      <button onclick="gameStart(); return false;">Create</button>
+      <button onClick="gameStart(); return false;">Create</button>
 
     </form>
-  </div><!-- elemNewGame -->
+  </div><!-- elemNewGameContainer -->
 
   <br><br>
 
-<div id="elemCharactersContainer">
+  <div id="elemCharactersContainer">
 
-  <h3>You</h3>
-  <div id="elemFriendly"></div><!-- elemFriendly -->
+    <h3>You</h3>
+    <div id="elemFriendly"></div><!-- elemFriendly -->
 
-  <h3>Chosen Enemy</h3>
-  <div id="elemEnemyChosen"></div><!-- elemEnemyChosen -->
+    <h3>Chosen Enemy</h3>
+    <div id="elemEnemyChosen"></div><!-- elemEnemyChosen -->
 
-</div><!-- elemCharactersContainer -->
+    <br>
+    <button onClick="battleStart();">Start</button>
 
-<br><br>
-<h3>Enemies</h3>
-<div id="elemEnemyContainer"></div><!-- elemEnemyContainer -->
+<input type="text" id="elemTemp" value="">
 
+  </div><!-- elemCharactersContainer -->
+
+  <br><br>
+  <h3>Enemies</h3>
+  <div id="elemEnemyContainer"></div><!-- elemEnemyContainer -->
 
 </body>
 </html>

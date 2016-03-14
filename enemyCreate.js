@@ -1,6 +1,8 @@
 
-var arrEnemy = new Array(); //Global Array to store all Enemies
-
+//Globals
+var arrEnemy = new Array();
+var arrEnemyChosen = new Array();
+var intPreviousChoice = "";
 
 function enemyCreateRandom(intNoOfEnemys) {
 
@@ -24,16 +26,39 @@ function enemyCreateRandom(intNoOfEnemys) {
 }// Function
 
 
+function addEnemyFromArray(arrArrayAddTo, arrArrayAddFrom, intIndex) {
+  //Adds entry to an array from another array
+  arrArrayAddTo[intIndex] = arrArrayAddFrom[intIndex];
+}
+
+function removeEnemyFromArray(arrArray, intIndex) {
+  //Deletes an entry of an array. DELETE not SPLICE so retains index
+  delete arrArray[intIndex];
+}
 
 
 
-var arrEnemyChosen = new Array();
 
 function chooseEnemy(intArrayIndex) {
 
-  arrEnemyChosen[0] = arrEnemy[intArrayIndex];
+  var x = "";
 
-  var x = document.getElementById("elemEnemyChosen");
-      x.innerHTML = arrEnemyChosen[0].createCardChosen();
+  addEnemyFromArray(arrEnemyChosen, arrEnemy, intArrayIndex);
+  x = document.getElementById("elemEnemyChosen");
+  x.innerHTML = arrEnemyChosen[intArrayIndex].createCardChosen();
+  removeEnemyFromArray(arrEnemy, intArrayIndex);
 
-}
+  if (intPreviousChoice != "") {
+    addEnemyFromArray(arrEnemy, arrEnemyChosen, intPreviousChoice);
+  }// If
+  x = document.getElementById("elemEnemyContainer");
+  x.innerHTML = "";
+  for (i=0; i<arrEnemy.length; i++) { //For loop to go through creations
+    if (arrEnemy[i] != null) {
+      x.innerHTML += arrEnemy[i].createCard();
+    }//If
+  }// For
+
+  intPreviousChoice = intArrayIndex;
+
+}// Function
