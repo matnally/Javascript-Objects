@@ -2,7 +2,7 @@
 //Globals
 var arrEnemy = new Array();
 var arrEnemyChosen = new Array();
-var intPreviousChoice = "";
+var intPreviousChoice = 999666;
 
 function enemyCreateRandom(intNoOfEnemys) {
 
@@ -48,7 +48,7 @@ function chooseEnemy(intArrayIndex) {
   x.innerHTML = arrEnemyChosen[intArrayIndex].createCardChosen();
   removeEnemyFromArray(arrEnemy, intArrayIndex);
 
-  if (intPreviousChoice != "") {
+  if (intPreviousChoice != 999666) {
     addEnemyFromArray(arrEnemy, arrEnemyChosen, intPreviousChoice);
   }// If
   x = document.getElementById("elemEnemyContainer");
@@ -59,6 +59,6 @@ function chooseEnemy(intArrayIndex) {
     }//If
   }// For
 
-  intPreviousChoice = intArrayIndex;
+  intPreviousChoice = intArrayIndex; //Everything done so it is now the Previous choice
 
 }// Function

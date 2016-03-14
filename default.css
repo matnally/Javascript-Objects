@@ -27,4 +27,5 @@
 }
 .characterCard {
   border: 1px #000 solid;
+  float: left;
 }
