@@ -19,6 +19,8 @@ var objCharacter = new Object(); //Main object creation
 
             this.items = 0;
 
+            this.opponentID = 0;
+
         }
         ,setAttribute: function (strDifficulty, intMin, intMax) {
 
@@ -92,6 +94,25 @@ var objCharacter = new Object(); //Main object creation
             strTemp += '</div>';
 
             return strTemp;
+
+        }
+        ,getArrayProperty: function  (arrArray, intArrayIndex, property) {
+
+/*
+          var i, rv = [];
+          for (var i=0;i<arrArray.length;i++ ) {
+            rv[i] = arrArray[i][property];
+          }
+          return rv;
+*/
+          return arrArray[i][property];
+        }
+        ,storeOpponentID: function (arrArray, intArrayIndex) {
+          //alert("1");
+alert(this.getArrayProperty(arrArray, intArrayIndex, "fullname"));
+//          alert("before2");
+        //  this.opponentID = arrArray[intArrayIndex][id];
+      //    alert("opponentID: " + this.opponentID);
 
         }
         ,createCardChosen: function () { //Displays all Properties in Object

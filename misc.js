@@ -7,6 +7,13 @@ function objectDisplayAllProperties(arrToDisplay) { // Iterates through and disp
 
 }// Function
 
+
+function objectReturnProperty(arrArray, intIndex, strProperty) { // Iterates through and displays all Properties in an Object
+
+  return arrArray[intIndex].strProperty;
+
+}// Function
+
 function returnPropertyRandom(arrArray) { // Returns a Random Property from passed in Array
 
   var returnPropertyRandom = arrArray[Math.floor(Math.random() * arrArray.length)]; //Value to Return

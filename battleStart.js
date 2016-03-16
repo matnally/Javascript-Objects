@@ -1,6 +1,6 @@
 
 var timRound = "";
-var intDunno = 10;
+var intRound = 0;
 
 function battleStart() {
 
@@ -10,12 +10,23 @@ function battleStart() {
 
 function dunnoHere() {
 
-var x = document.getElementById("elemTemp");
-    x.value = intDunno;
+  intRound = intRound + 1;
 
-    intDunno = intDunno - 1;
+  var x = document.getElementById("elemTemp");
+      x.value = intRound;
 
-  if (intDunno <= 0) {
+/*
+Work out Enemy Attack
+Work out Enemy Defense
+Work out Friendly Attack
+Work out Friendly Defense
+Work out Speed
+*/
+
+//alert(objectReturnProperty(arrFriendly, 0, "fullname"));
+
+
+  if (intRound >= 10) {
     window.clearInterval(timRound);
     alert("Timer stopped!");
   }

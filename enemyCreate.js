@@ -41,24 +41,31 @@ function removeEnemyFromArray(arrArray, intIndex) {
 
 function chooseEnemy(intArrayIndex) {
 
-  var x = "";
+  var elem = "";
 
   addEnemyFromArray(arrEnemyChosen, arrEnemy, intArrayIndex);
-  x = document.getElementById("elemEnemyChosen");
-  x.innerHTML = arrEnemyChosen[intArrayIndex].createCardChosen();
+  elem = document.getElementById("elemEnemyChosen");
+  elem.innerHTML = arrEnemyChosen[intArrayIndex].createCardChosen();
   removeEnemyFromArray(arrEnemy, intArrayIndex);
 
   if (intPreviousChoice != 999666) {
     addEnemyFromArray(arrEnemy, arrEnemyChosen, intPreviousChoice);
   }// If
-  x = document.getElementById("elemEnemyContainer");
-  x.innerHTML = "";
+  elem = document.getElementById("elemEnemyContainer");
+  elem.innerHTML = "";
   for (i=0; i<arrEnemy.length; i++) { //For loop to go through creations
     if (arrEnemy[i] != null) {
-      x.innerHTML += arrEnemy[i].createCard();
+      elem.innerHTML += arrEnemy[i].createCard();
     }//If
   }// For
 
-  intPreviousChoice = intArrayIndex; //Everything done so it is now the Previous choice
+  intPreviousChoice = intArrayIndex; //Everything done so current choice now Previous choice
+
+
+
+  arrFriendly[0].storeOpponentID(arrEnemy, intArrayIndex);
+//  arrEnemyChosen[intArrayIndex].storeOpponentID();
+//  arrEnemy[intArrayIndex].storeOpponentID();
+
 
 }// Function
