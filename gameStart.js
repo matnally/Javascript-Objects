@@ -1,11 +1,16 @@
 
 function gameStart() {
 
-    var x = document.getElementById("elemNewGameNoOfEnemys"); //Get Number of Enemies to create from Input box
-    enemyCreateRandom(x.value); //Create Nth Enemies
+  var intCharacterInstances = document.getElementById("elemCharacterInstances").value; //Get Number of Characters to create from Input box
 
-    friendlyCreateRandom(1); //Create Nth Friendly
+  /*
+    createCharacter - Creates the Object and populates Array
+    createCharacterCard - Create HTML from Array
+    populateElement - Populates element with HTML
+  */
+  populateElement("elemFriendlyContainer", createCharacterCard(createCharacter(arrFriendly, intCharacterInstances)));
+  populateElement("elemEnemyContainer", createCharacterCard(createCharacter(arrEnemy, intCharacterInstances)));
 
-    document.getElementById("elemNewGameContainer").remove(); //Remove New Game DIV
+  document.getElementById("elemNewGameContainer").remove(); //Remove New Game DIV
 
 }

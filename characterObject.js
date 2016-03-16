@@ -1,32 +1,26 @@
 
-var objCharacter = new Object(); //Main object creation
+/**************************************************************/
+/***************** START Main object creation *****************/
+/**************************************************************/
+
+var objCharacter = new Object();
 
     objCharacter = { //Assign functions to object
-        setValues: function (intID
-                            ,strFullname
-                            ,strDOB
-        ) { //Set Object Property values
+        setValues: function (intID, strFullname) { //Set Object Property values
+
             this.id = intID;
 
             this.fullname = strFullname;
 
-            this.DOB = strDOB; //YYYY-MM-DD
-            this.age = this.getAgeFromDOB(strDOB);
-
             this.attack = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
             this.defense = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
             this.speed = this.setAttribute(document.getElementById("elemNewGameDifficulty").value, 1, 10);
-
-            this.items = 0;
-
-            this.opponentID = 0;
 
         }
         ,setAttribute: function (strDifficulty, intMin, intMax) {
 
           var intAttribute = 0;
           var intMultiplier = 0;
-
           var intReturnValue = 0;
 
           switch (strDifficulty) {
@@ -49,108 +43,63 @@ var objCharacter = new Object(); //Main object creation
           return intReturnValue;
 
         }
-        ,getAgeFromDOB: function (strDOB) { //Return age determined from date of birth
+      };
 
-            var datDOB = new Date(strDOB); //YYYY-MM-DD
-            return ~~((Date.now() - datDOB) / (31557600000));
-        }
-        ,displayProperties: function () { //Displays all Properties in Object
+/**************************************************************/
+/****************** END Main object creation ******************/
+/**************************************************************/
 
-            var strTemp = "";
+var arrFriendly = new Array(); //Global Array to store all Friendlys
+var arrEnemy = new Array(); //Global Array to store all Enemies
 
-            for (var key in this) {
-                if (this.hasOwnProperty(key)) {
-                    strTemp += key + " : " + this[key];
-                    strTemp += "<br>";
-                }
-            }
+function createCharacter(arrArray, intCharacters) { //Create new object using objCharacter definition; Create new loop so is a unique object
 
-            strTemp += "<br>";
+  for (var i=0; i<intCharacters; i++) { //For loop to go through creations
 
-            var x = document.getElementById("elemEnemyContainer");
-                x.innerHTML += strTemp;
+    var objCharacterInstance = Object.create(objCharacter); //Create Object
 
-        }
-        ,createCard: function () { //Displays all Properties in Object
+    objCharacterInstance.setValues(i, returnPropertyRandom(arrFullname, arrArray)); //Init
 
-            var strTemp = "";
 
-            strTemp += '<div id="'+this.id+'" class="characterCard" onClick="chooseEnemy('+this.id+');">';
-            strTemp += '<h3>'+this.fullname+'</h3>';
-            strTemp += '<label for="'+this.id+'-id">ID: </label><input id="'+this.id+'-id" type="text" value="'+this.id+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-fullName">Full Name: </label><input id="'+this.id+'-fullName" type="text" value="'+this.fullname+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-dob">Date of Birth: </label><input id="'+this.id+'-dob" type="text" value="'+this.DOB+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-age">Age (years): </label><input id="'+this.id+'-age" type="text" value="'+this.age+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-attack">Attack: </label><input id="'+this.id+'-attack" type="text" value="'+this.attack+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-defense">Defense: </label><input id="'+this.id+'-defense" type="text" value="'+this.defense+'">';
-            strTemp += '<br>';
-            strTemp += '<label for="'+this.id+'-speed">Speed: </label><input id="'+this.id+'-speed" type="text" value="'+this.speed+'">';
-            strTemp += '<br>';
-            strTemp += '</div>';
+//Check for duplicates
 
-            return strTemp;
+//alert(objCharacterInstance.fullname);
 
-        }
-        ,getArrayProperty: function  (arrArray, intArrayIndex, property) {
 
-/*
-          var i, rv = [];
-          for (var i=0;i<arrArray.length;i++ ) {
-            rv[i] = arrArray[i][property];
-          }
-          return rv;
-*/
-          return arrArray[i][property];
-        }
-        ,storeOpponentID: function (arrArray, intArrayIndex) {
-          //alert("1");
-alert(this.getArrayProperty(arrArray, intArrayIndex, "fullname"));
-//          alert("before2");
-        //  this.opponentID = arrArray[intArrayIndex][id];
-      //    alert("opponentID: " + this.opponentID);
 
-        }
-        ,createCardChosen: function () { //Displays all Properties in Object
 
-            var strTemp = "";
 
-            strTemp += '<div id="'+this.id+'" class="characterCard" onClick="chooseEnemy('+this.id+');">';
-            strTemp += '<h3>'+this.fullname+'</h3>';
-            strTemp += '<label>Attack: </label><label>'+this.attack+'</label>';
-            strTemp += '<br>';
-            strTemp += '<label">Defense: </label><label>'+this.defense+'</label>';
-            strTemp += '<br>';
-            strTemp += '<label>Speed: </label><label>'+this.speed+'</label>';
-            strTemp += '<br>';
-            strTemp += '</div>';
 
-            return strTemp;
+    arrArray.push(objCharacterInstance); //Write Object to Array
 
-        }
-        ,calcAttack: function () {
+  }// For
 
-          var strTemp = 0;
+  return arrArray;
 
-          return strTemp;
+}// Function
 
-        }
-        ,calcDefense: function () {
+function createCharacterCard(arrArray) { //Create HTML for the Character card
 
-          var strTemp = 0;
+  var strTemp = "";
 
-          return strTemp;
+  for (var i=0; i<arrArray.length; i++) { //For loop to go through creations
 
-        }
-        ,calcHealth: function () {
+    strTemp += '<div id="'+arrArray[i].id+'" class="characterCard" onClick="chooseEnemy('+arrArray[i].id+');">';
+    strTemp += '<h3>'+arrArray[i].fullname+'</h3>';
+    strTemp += '<label for="'+arrArray[i].id+'-id">ID: </label><input id="'+arrArray[i].id+'-id" type="text" value="'+arrArray[i].id+'">';
+    strTemp += '<br>';
+    strTemp += '<label for="'+arrArray[i].id+'-fullName">Full Name: </label><input id="'+arrArray[i].id+'-fullName" type="text" value="'+arrArray[i].fullname+'">';
+    strTemp += '<br>';
+    strTemp += '<label for="'+arrArray[i].id+'-attack">Attack: </label><input id="'+arrArray[i].id+'-attack" type="text" value="'+arrArray[i].attack+'">';
+    strTemp += '<br>';
+    strTemp += '<label for="'+arrArray[i].id+'-defense">Defense: </label><input id="'+arrArray[i].id+'-defense" type="text" value="'+arrArray[i].defense+'">';
+    strTemp += '<br>';
+    strTemp += '<label for="'+arrArray[i].id+'-speed">Speed: </label><input id="'+arrArray[i].id+'-speed" type="text" value="'+arrArray[i].speed+'">';
+    strTemp += '<br>';
+    strTemp += '</div>';
 
-          var strTemp = 0;
+  }// For
 
-          return strTemp;
+  return strTemp;
 
-        }
-    };
+}

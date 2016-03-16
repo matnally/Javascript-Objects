@@ -1,6 +1,6 @@
 
 //Globals
-var arrEnemy = new Array();
+
 var arrEnemyChosen = new Array();
 var intPreviousChoice = 999666;
 

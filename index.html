@@ -4,13 +4,13 @@
 
         <meta charset="utf-8">
 
-        <script type="text/javascript" src="characterPropertyValues.js"></script>
         <script type="text/javascript" src="characterObject.js"></script>
-          <script type="text/javascript" src="enemyCreate.js"></script>
-          <script type="text/javascript" src="friendlyCreate.js"></script>
-        <script type="text/javascript" src="misc.js"></script>
+        <script type="text/javascript" src="characterNames.js"></script>
+
         <script type="text/javascript" src="gameStart.js"></script>
-        <script type="text/javascript" src="battleStart.js"></script>
+
+        <script type="text/javascript" src="misc.js"></script>
+
 
         <link rel="stylesheet" type="text/css" href="default.css">
 
@@ -27,8 +27,8 @@
       <input id="elemNewGameName" type="text" value="Frank Zappa" size="25">
       <br>
 
-      <label for="elemNewGameNoOfEnemys">Number of Enemies</label>
-      <input id="elemNewGameNoOfEnemys" type="number" min="1" max="50" step="1" value="5" size="2">
+      <label for="elemCharacterInstances">Number of Characters</label>
+      <input id="elemCharacterInstances" type="number" min="1" max="50" step="1" value="5" size="2">
       <br>
 
       <label for="elemNewGameDifficulty">Difficulty</label>
@@ -60,6 +60,10 @@
     <input type="text" id="elemTemp" value="">
 
   </div><!-- elemCharactersContainer -->
+
+  <br><br>
+  <h3>Friendlies</h3>
+  <div id="elemFriendlyContainer"></div><!-- elemEnemyContainer -->
 
   <br><br>
   <h3>Enemies</h3>
