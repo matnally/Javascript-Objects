@@ -57,18 +57,7 @@ function createCharacter(arrArray, intCharacters) { //Create new object using ob
   for (var i=0; i<intCharacters; i++) { //For loop to go through creations
 
     var objCharacterInstance = Object.create(objCharacter); //Create Object
-
-    objCharacterInstance.setValues(i, returnPropertyRandom(arrFullname, arrArray)); //Init
-
-
-//Check for duplicates
-
-//alert(objCharacterInstance.fullname);
-
-
-
-
-
+        objCharacterInstance.setValues(i, returnPropertyRandom(arrFullname, arrArray)); //Init
 
     arrArray.push(objCharacterInstance); //Write Object to Array
 
@@ -84,18 +73,14 @@ function createCharacterCard(arrArray) { //Create HTML for the Character card
 
   for (var i=0; i<arrArray.length; i++) { //For loop to go through creations
 
-    strTemp += '<div id="'+arrArray[i].id+'" class="characterCard" onClick="chooseEnemy('+arrArray[i].id+');">';
+    strTemp += '<div id="'+arrArray[i].id+'" class="characterCard" onClick="characterChoose('+i+', '+arrArray[i].id+')">';
     strTemp += '<h3>'+arrArray[i].fullname+'</h3>';
-    strTemp += '<label for="'+arrArray[i].id+'-id">ID: </label><input id="'+arrArray[i].id+'-id" type="text" value="'+arrArray[i].id+'">';
+//    strTemp += '<img id="'+arrArray[i].id+'-image" class="characterImage" src="1.png" alt="'+arrArray[i].fullname+'">';
+    strTemp += '<label for="'+arrArray[i].id+'-attack">Attack: </label><label id="'+arrArray[i].id+'-attack">'+arrArray[i].attack+'</label>';
     strTemp += '<br>';
-    strTemp += '<label for="'+arrArray[i].id+'-fullName">Full Name: </label><input id="'+arrArray[i].id+'-fullName" type="text" value="'+arrArray[i].fullname+'">';
+    strTemp += '<label for="'+arrArray[i].id+'-defense">Defense: </label><label id="'+arrArray[i].id+'-defense">'+arrArray[i].defense+'</label>';
     strTemp += '<br>';
-    strTemp += '<label for="'+arrArray[i].id+'-attack">Attack: </label><input id="'+arrArray[i].id+'-attack" type="text" value="'+arrArray[i].attack+'">';
-    strTemp += '<br>';
-    strTemp += '<label for="'+arrArray[i].id+'-defense">Defense: </label><input id="'+arrArray[i].id+'-defense" type="text" value="'+arrArray[i].defense+'">';
-    strTemp += '<br>';
-    strTemp += '<label for="'+arrArray[i].id+'-speed">Speed: </label><input id="'+arrArray[i].id+'-speed" type="text" value="'+arrArray[i].speed+'">';
-    strTemp += '<br>';
+    strTemp += '<label for="'+arrArray[i].id+'-speed">Speed: </label><label id="'+arrArray[i].id+'-speed">'+arrArray[i].speed+'</label>';
     strTemp += '</div>';
 
   }// For
@@ -103,3 +88,7 @@ function createCharacterCard(arrArray) { //Create HTML for the Character card
   return strTemp;
 
 }
+
+function characterChoose(intIndex, intArrayIndex) {
+  alert("You have chosen - intIndex: " + intIndex + " intArrayIndex: " + intArrayIndex);
+}// Function

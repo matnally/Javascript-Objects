@@ -11,7 +11,6 @@
 
         <script type="text/javascript" src="misc.js"></script>
 
-
         <link rel="stylesheet" type="text/css" href="default.css">
 
         <title>Objects</title>
@@ -37,7 +36,7 @@
         <option value="normal" selected>Normal</option>
         <option value="hard">Hard</option>
       </select>
-      <br><br>
+      <br>
 
       <button onClick="gameStart(); return false;">Create</button>
 
@@ -46,28 +45,27 @@
 
   <br><br>
 
-  <div id="elemCharactersContainer">
+  <div id="elemCharactersChosenContainer">
 
-    <h3>You</h3>
-    <div id="elemFriendly"></div><!-- elemFriendly -->
+    <h3>Friendly</h3>
+    <div id="elemFriendlyChosenContainer"></div><!-- elemEnemyContainer -->
 
-    <h3>Chosen Enemy</h3>
-    <div id="elemEnemyChosen"></div><!-- elemEnemyChosen -->
-
-    <br>
-    <button onClick="battleStart();">Start</button>
-
-    <input type="text" id="elemTemp" value="">
+    <h3>Enemy</h3>
+    <div id="elemEnemyChosenContainer"></div><!-- elemEnemyContainer -->
 
   </div><!-- elemCharactersContainer -->
 
   <br><br>
-  <h3>Friendlies</h3>
-  <div id="elemFriendlyContainer"></div><!-- elemEnemyContainer -->
 
-  <br><br>
-  <h3>Enemies</h3>
-  <div id="elemEnemyContainer"></div><!-- elemEnemyContainer -->
+  <div id="elemCharactersContainer">
+
+    <h3>Friendlies</h3>
+    <div id="elemFriendlyContainer"></div><!-- elemEnemyContainer -->
+
+    <h3>Enemies</h3>
+    <div id="elemEnemyContainer"></div><!-- elemEnemyContainer -->
+
+  </div><!-- elemCharactersContainer -->
 
 </body>
 </html>

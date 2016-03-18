@@ -1,12 +1,12 @@
 
 function populateElement(elemToPopulate, strHTML) { //Populates an element with passed HTML
 
-  var x="";
+  var x = "";
       x = document.getElementById(elemToPopulate);
       x.innerHTML = strHTML;
       x.style.visibility = "visible";
 
-}
+} //Function
 
 function returnPropertyRandom(arrArray, arrArrayToCheck) { // Returns a Random Property from passed in Array
 
@@ -21,7 +21,9 @@ function returnPropertyRandom(arrArray, arrArrayToCheck) { // Returns a Random P
 
   return returnPropertyRandom;
 
-}// Function
+} //Function
+
+
 
 
 
@@ -35,16 +37,17 @@ function objectDisplayAllProperties(arrToDisplay) { // Iterates through and disp
 
   for (i=0; i<arrToDisplay.length; i++) { //For loop to go through creations
     arrToDisplay[i].displayProperties();
-  }// For
+  } //For
 
-}// Function
+} //Function
 
 
 function objectReturnProperty(arrArray, intIndex, strProperty) { // Iterates through and displays all Properties in an Object
 
   return arrArray[intIndex].strProperty;
 
-}// Function
+} //Function
+
 
 function returnDOBRandom(intStart, intEnd) { // Returns a Random Property from passed in Array
 
@@ -52,4 +55,4 @@ function returnDOBRandom(intStart, intEnd) { // Returns a Random Property from p
   //alert(datDOB.toUTCString());
   return datDOB;
 
-}// Function
+} //Function

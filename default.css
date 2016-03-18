@@ -2,10 +2,6 @@
   padding: 10px;
 }
 
-#elemCharactersContainer {
-  border: 1px #CCC solid;
-  display: table;
-}
 #elemFriendly {
   display: table-cell;
 }
@@ -13,19 +9,30 @@
   display: table-cell;
 }
 
-
-
-
 #elemNewGameContainer {
   border: 1px #000 solid;
 }
 
 
 
+
+#elemCharactersContainer {
+  border: 1px #000 solid;
+  display: table;
+}
+#elemFriendlyContainer {
+  display: table-row;
+}
 #elemEnemyContainer {
-  visibility: hidden;
+  display: table-row;
 }
 .characterCard {
-  border: 1px #000 solid;
-  float: left;
+  border: 1px #CCC solid;
+  display: table-cell;
+}
+.characterCard:hover {
+  background: #CCC;
+}
+.characterImage {
+  display: block;
 }
