@@ -8,8 +8,10 @@ function gameStart() {
     createCharacterCard - Create HTML from Array
     populateElement - Populates element with HTML
   */
-  populateElement("elemFriendlyContainer", createCharacterCard(createCharacter(arrFriendly, intCharacterInstances)));
-  populateElement("elemEnemyContainer", createCharacterCard(createCharacter(arrEnemy, intCharacterInstances)));
+//  populateElement("elemFriendlyContainer", createCharacterCard(createCharacter(arrFriendly, intCharacterInstances, "Friendly")));
+//  populateElement("elemEnemyContainer", createCharacterCard(createCharacter(arrEnemy, intCharacterInstances, "Enemy")));
+  populateElement("elemFriendlyContainer", createCharacterCard(createCharacter(arrFriendly, intCharacterInstances, "Friendly")));
+  populateElement("elemEnemyContainer", createCharacterCard(createCharacter(arrEnemy, intCharacterInstances, "Enemy")));
 
   document.getElementById("elemNewGameContainer").remove(); //Remove New Game DIV
 

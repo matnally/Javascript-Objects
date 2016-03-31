@@ -1,38 +1,71 @@
-#elemCharactersContainer, #elemFriendly, #elemEnemyChosen, #elemEnemyContainer, #elemNewGameContainer, .characterCard {
+
+/**************** START OF COMMON ************************/
+
+#elemNewGameContainer
+,#elemCharactersContainer
+,#elemFriendlyContainer
+,#elemEnemyContainer
+,#elemCharactersChosenContainer
+,#elemFriendlyChosenContainer
+,#elemEnemyChosenContainer
+,.infoCard
+,.characterCard {
   padding: 10px;
 }
 
-#elemFriendly {
-  display: table-cell;
-}
-#elemEnemyChosen {
-  display: table-cell;
-}
+/**************** END OF COMMON ************************/
+
+/**************** START OF NEW GAME ************************/
 
 #elemNewGameContainer {
   border: 1px #000 solid;
 }
 
+/**************** END OF NEW GAME ************************/
 
+/*******************************************************/
+/**************** START OF MAIN ************************/
+/*******************************************************/
 
-
-#elemCharactersContainer {
+#elemCharactersContainer, #elemCharactersChosenContainer {
   border: 1px #000 solid;
   display: table;
 }
-#elemFriendlyContainer {
+#elemFriendlyContainer, #elemEnemyContainer {
   display: table-row;
 }
-#elemEnemyContainer {
-  display: table-row;
+#elemFriendlyChosenContainer, #elemEnemyChosenContainer, #elemInfoChosenContainer {
+  display: table-cell;
+}
+#elemInfoChosenContainer {
+  border: 1px #CCC solid;
+}
+.infoCard {
+  border: 1px #CCC solid;
+  display: table-cell;
 }
 .characterCard {
   border: 1px #CCC solid;
   display: table-cell;
+  width: 200px;
+  height: 150px;
 }
 .characterCard:hover {
   background: #CCC;
 }
-.characterImage {
-  display: block;
+
+/*******************************************************/
+/**************** END OF MAIN ************************/
+/*******************************************************/
+
+
+/**************** START OF MISC ************************/
+
+.greyedOut {
+  opacity: 0.5;
 }
+.greyedOut:hover {
+  background-color: inherit;
+}
+
+/**************** END OF MISC ************************/
